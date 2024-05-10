@@ -38,14 +38,14 @@ public class RegistrationController {
     @PostMapping("/reg")
     public String regUser(@ModelAttribute("userForm") User userForm, Model model){
         userService.addUser(userForm);
-        return "redirect:/account";
+        return "redirect:login";
     }
 
     @PostMapping("/login")
     public String loginUser(@RequestParam String username, @RequestParam String password, Model model) {
         boolean isAuthenticated = userService.authenticateUser(username, password);
         if (isAuthenticated) {
-            return "redirect:/account";
+            return "redirect:account";
         } else {
             model.addAttribute("errorLog", "Неверные учетные данные");
             return "login";
@@ -54,6 +54,6 @@ public class RegistrationController {
 
     @GetMapping("/account")
     public String account(Model model) {
-        return "account";
+        return "/account";
     }
 }

@@ -1,5 +1,8 @@
 package com.example.butcher_shop.databases;
 import jakarta.persistence.*;
+
+import java.util.Optional;
+
 @Entity
 @Table(name = "user")
 public class User {
@@ -50,4 +53,5 @@ public class User {
     public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
+
 }

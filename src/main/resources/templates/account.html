@@ -6,7 +6,11 @@
 </head>
 <body>
 <header th:insert="/header::header"></header>
-<p>Это просто аккаунт пользователя</p>
-<a href="/login">Войти</a>
+<main>
+    <p class="aaaa">Это просто аккаунт пользователя</p>
+    <form action="/logout" method="GET" >
+        <button class = "shineButton" type="submit">Выйти</button>
+    </form>
+</main>
 </body>
 </html>

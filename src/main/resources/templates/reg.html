@@ -9,7 +9,7 @@
 <header th:insert="~{/header :: header}"></header>
 
 <main>
-    <form method="post">
+    <form th:action="@{/reg}" method="post">
         <h2> Регистрация</h2>
         <div class = "textInput">
             <input type="text" name="username"  required placeholder="Логин">
