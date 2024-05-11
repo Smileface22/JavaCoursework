@@ -1,6 +1,7 @@
 package com.example.butcher_shop.databases;
 import jakarta.persistence.*;
 
+import java.util.List;
 import java.util.Optional;
 
 @Entity
@@ -14,6 +15,8 @@ public class User {
     private String email;
     private String phoneNumber;
 
+    @OneToMany
+    private List<Order> orders;
     public User(String username, String email, String phoneNumber, String password) {
         this.username=username;
         this.email = email;

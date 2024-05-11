@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link href="/static/css/header.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+    <title>Title</title>
+</head>
+<body>
+<header th:insert="/header::header"></header>
+<form id="myForm" th:action="@{/shoppingCartPost}" th:object="${numberOfItems}" th:method="POST" style="display: none;">
+    <input id="inputItems" style="display: none;" readonly th:field="*{number}">
+</form>
+<main>
+    <section class = "cart">
+        <div class = "topBar">
+            <div><p>Товар</p></div>
+            <div><p>Количество</p></div>
+            <div><p>Цена за один товар</p></div>
+            <div><p>Общая стоимость</p></div>
+        </div>
+        <div class = "cartGoods">
+            <div id="cart-items"></div>
+        </div>
+        </section>
+    <form class = "contactsMenu" th:action = "@{/add-order}" th:method="POST" th:object="${order}">
+        <h2>Общая стоимость</h2>
+        <div>
+            <input id = "text2" th:field="*{totalCost}" readonly>
+            <p>₽</p>
+        </div>
+        <div th:each = "meat, i: *{orderItems}">
+            <input th:id = "${'productIndex' + __${i.index}__}" th:field="*{orderItems[__${i.index}__].meat.id}" style="display: none;">
+            <input th:id = "${'name' + __${i.index}__}" th:field="*{orderItems[__${i.index}__].meat.name}" style="display:none;">
+            <input th:id = "${'quantity' + __${i.index}__}" th:field="*{orderItems[__${i.index}__].quantity}" style="display: none;">
+            <input th:id = "${'price' + __${i.index}__}" th:field="*{orderItems[__${i.index}__].meat.price}" style="display: none;">
+        </div>
+        <button type="submit" class = "shineButton" onclick = "removeAll()">Оформить</button>
+    </form>
+</main>
+<script src="/static/js/add-cart.js"></script>
+<script>
+    window.onload = function () {
+        getNumberOfItems();
+        fillCartItems();
+    };
+</script>
+</body>
+</html>

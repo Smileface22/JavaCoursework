@@ -3,11 +3,40 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <link href="/static/css/header.css" rel="stylesheet">
+    <link href="/static/css/catalog.css" rel="stylesheet">
 </head>
 <body>
     <header th:insert="/header::header"></header>
+    <form id="myForm" th:action="@{/shoppingCartPost}" th:object="${numberOfItems}" th:method="POST" style="display: none;">
+        <input id="inputItems" style="display: none;" readonly th:field="*{number}">
+    </form>
 <main>
-
+    <div class = "container">
+        <div class = "catalogFlex">
+            <div class="catalog">
+                <div class="product" th:each="prod : ${meats}">
+                    <img th:src="@{'/static/images/' + ${prod.getId()} + '.jpg'}" th:id = "'img' + ${prod.getId()}">
+                    <div class="caption">
+                        <p class="prodName" th:id = "'title' + ${prod.getId()}" th:text = "${prod.getName()}"></p>
+                        <div class = "description">
+                            <p th:text="${prod.getDescription()}"></p>
+                        </div>
+                        <p class="prodPrice" th:id = "'price' + ${prod.getId()}" th:text="${prod.getPrice() + '₽'}"></p>
+                        <div class = "clickButton">
+                            <button class = "buy" id  = "buyButton"  th:attr="onclick=|addToCart('${prod.getId()}')|">В корзину</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </main>
+    <script src="/static/js/add-cart.js"></script>
+    <script>
+        window.onload = function () {
+        getNumberOfItems();
+    };
+    setInterval(fillCartItems, 1000);
+    </script>
 </body>
 </html>

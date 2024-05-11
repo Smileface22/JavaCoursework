@@ -26,6 +26,9 @@ public class UserService {
         User user = userRepository.findUserByUsername(username);
         return user != null && user.getPassword().equals(password);
     }
+    public User findUserById(Long id) {
+        return userRepository.findUserById(id);
+    }
     public Optional<User> findByUsername(String username) {
         return userRepository.findByUsername(username);
     }

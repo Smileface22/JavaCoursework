@@ -1,8 +1,10 @@
 package com.example.butcher_shop.controllers;
 
+import com.example.butcher_shop.databases.CustomUserDetails;
 import com.example.butcher_shop.databases.User;
 import com.example.butcher_shop.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -16,10 +18,6 @@ public class RegistrationController {
     @Autowired
     private UserService userService;
 
-    @GetMapping("/")
-    public String home(Model model) {
-        return "home";
-    }
     @GetMapping("/login")
     public String login(Model model) {
         return "login";
@@ -52,8 +50,4 @@ public class RegistrationController {
         }
     }
 
-    @GetMapping("/account")
-    public String account(Model model) {
-        return "/account";
-    }
 }
