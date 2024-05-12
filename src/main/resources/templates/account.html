@@ -3,6 +3,7 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <link href="/static/css/header.css" rel="stylesheet">
+    <link href="/static/css/account.css" rel="stylesheet">
 </head>
 <body>
 <header th:insert="/header::header"></header>
@@ -12,7 +13,7 @@
         <div class = "orders" th:each="order : ${orders}">
             <div class = "simpleOrder">
                 <div class = "orderDescription">
-                    <h2 th:text="${'Заказ от ' + order.getOrderDate()}" ></h2>
+                    <h3 th:text="${'Заказ от ' + order.getOrderDate()}" ></h3>
                     <p th:text = "${'Общая стоимость: ' + order.getTotalCost() + ' ₽'}"></p>
                     <p th:text = "${'Статус заказа: ' + order.getStatus()}"></p>
                 </div>
@@ -31,7 +32,7 @@
 
     <div id = "myContacts" class = "contactsMenu" th:object="${user}">
         <div class = "userHeader">
-            <p>Данные пользователя</p>
+            <h3>Данные пользователя</h3>
         </div>
         <div class = "textInput">
             <p th:text = "${'Имя: ' + user.getUsername()}"></p>

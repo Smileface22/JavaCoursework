@@ -38,17 +38,17 @@ function fillCartItems() {
         cartItemElement.innerHTML = `
             <div class="card">
                 <img src="${cart[ind].img}" alt="${cart[ind].name}">
-                <p>${cart[ind].name}</p>
+                <h3>${cart[ind].name}</h3>
             </div>
             <div class="plus-minus">
             <i class="fa fa-minus" onclick="changeQuantity('${cart[ind].name}', -1, this)"></i>
-            <p>${cart[ind].quantity}</p>
+            <p >${cart[ind].quantity}</p>
              <i class="fa fa-plus" onclick="changeQuantity('${cart[ind].name}', 1)"></i>
             </div>
-            <p>${cart[ind].price} ₽</p>
+            <p class="price">${cart[ind].price} ₽</p>
            <div class = "removeAndPrice">
               <p>${cart[ind].quantity * cart[ind].price} ₽</p>
-             <button class="remove-btn" onclick="removeItem(${ind})"><i class="fa fa-trash" aria-hidden="true"></i></button>
+             <i class="fa fa-trash" onclick="removeItem(${ind})"></i>
             </div>`;
 
                    let productIndex = document.getElementById('productIndex' + ind);

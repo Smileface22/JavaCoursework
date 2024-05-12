@@ -1,3 +1,49 @@
-.class{
-margin
+main{
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    gap: 20px;
 }
+.orders{
+    margin:15px;
+    }
+.product{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    width: 100%;
+    text-align: center;
+    margin-bottom: 15px;
+    justify-items: center;
+    align-items: center;
+     text-align: center;
+}
+.product img{
+    width: 200px;
+    height: 200px;
+}
+.orderDescription {
+    display: flex;
+    margin-bottom: 15px;
+    align-items: center;
+}
+.orderDescription p{
+    margin: 0 10px;
+}
+.simpleOrder:last-child{
+    border-bottom: solid 2px rgb(128, 128, 128);
+}
+.contactsMenu{
+    display: flex;
+    flex-direction: column;
+    padding: 0 20px;
+}
+.contactsMenu p{
+    padding: 5px 0;
+}
+.contactsMenu .shineButton{
+    background-color: #D2691E;
+        padding: 10px 15px;
+        cursor: pointer;
+        border-radius: 5px;
+        width:100%;
+        border: none;
+    }

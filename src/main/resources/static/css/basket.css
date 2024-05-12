@@ -1,0 +1,88 @@
+main{
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    gap: 20px;
+}
+main p{
+font-size:18px;}
+
+.topBar{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    justify-items: center;
+    width: 100%;
+    text-align: center;
+    margin-bottom: 15px;
+    border-bottom: solid 2px rgb(128, 128, 128);
+}
+
+.oneGood {
+    display: grid;
+    text-align: center;
+    width: 100%;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-areas:
+                "card plus-minus price removeAndPrice";
+    justify-items: center;
+    align-items: center;
+    margin-bottom: 15px;
+    border-bottom: solid 2px rgb(128, 128, 128);
+}
+.card{
+    grid-area: card;
+}
+.card img{
+    width: 200px;
+    height: 200px;
+}
+.card p {
+    text-align:center;
+}
+.plus-minus{
+    font-size: 18px;
+    grid-area: plus-minus;
+    display: flex;
+    align-items: center;
+}
+.plus-minus p{
+    margin: 10px;
+}
+.price{
+    grid-area: price;
+}
+.removeAndPrice p{
+ margin: 10px;
+}
+.removeAndPrice{
+    grid-area: removeAndPrice;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+}
+.contactsMenu{
+    display: flex;
+    flex-direction: column;
+    padding: 0 20px;
+}
+.contactsMenu input{
+    width: 50px;
+    border: none;
+    background-color: transparent;
+    color: inherit;
+    outline: none;
+    font-size: 20px;
+    margin-right:10px;
+}
+.contactsMenu .overPrice{
+    display:flex;
+    padding: 10px 0;
+    }
+
+.contactsMenu .shineButton{
+    background-color: #D2691E;
+        padding: 10px 15px;
+        cursor: pointer;
+        border-radius: 5px;
+        width:100%;
+        border: none;
+    }

@@ -34,36 +34,26 @@ header::before{
     background: #FFDEAD;
     z-index: 2;
 }
-.header-container{
-    position: relative;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    height: 80px;
-}
 header nav{
+    justify-content: space-around;
     z-index: 2;
     position: relative;
     display: flex;
 }
 
-header ul{
-    height: 80px;
-    display: flex;
-    align-items: center;
-    list-style-type: none;
-}
-header ul li a{
+.menu a{
+    width: 100%;
+    text-align: center;
     display:block;
     padding: 30px 20px ;
     font-size: 1.2rem;
     color: black;
 }
 
-header ul li a:hover{
+header .menu a:hover{
     background: #DEB887;
     transition: 0.5s;
 }
-header ul li a:active{
+header .menu a:active{
     background:#D2691E;
 }

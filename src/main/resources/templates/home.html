@@ -17,7 +17,7 @@
                 <div class="product" th:each="prod : ${meats}">
                     <img th:src="@{'/static/images/' + ${prod.getId()} + '.jpg'}" th:id = "'img' + ${prod.getId()}">
                     <div class="caption">
-                        <p class="prodName" th:id = "'title' + ${prod.getId()}" th:text = "${prod.getName()}"></p>
+                        <h3 class="prodName" th:id = "'title' + ${prod.getId()}" th:text = "${prod.getName()}"></h3>
                         <div class = "description">
                             <p th:text="${prod.getDescription()}"></p>
                         </div>

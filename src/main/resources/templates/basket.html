@@ -3,6 +3,7 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <link href="/static/css/header.css" rel="stylesheet">
+    <link href="/static/css/basket.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
     <title>Title</title>
 </head>
@@ -25,7 +26,7 @@
         </section>
     <form class = "contactsMenu" th:action = "@{/add-order}" th:method="POST" th:object="${order}">
         <h2>Общая стоимость</h2>
-        <div>
+        <div class="overPrice">
             <input id = "text2" th:field="*{totalCost}" readonly>
             <p>₽</p>
         </div>
