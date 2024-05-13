@@ -20,6 +20,7 @@ main{
 
 header{
     width: 100%;
+    height:80px;
     position: fixed;
     top: 0;
     z-index: 50;
@@ -56,4 +57,15 @@ header .menu a:hover{
 }
 header .menu a:active{
     background:#D2691E;
+}
+
+footer{
+    width: 100%;
+    background: #FFDEAD;
+    height:40px;
+    display: flex;
+    text-align: center;
+}
+footer p{
+padding-left:20px;
 }
