@@ -1,0 +1,57 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link href="/static/css/header.css" rel="stylesheet">
+    <link href="/static/css/account.css" rel="stylesheet">
+</head>
+<body>
+<header th:insert="/header::header"></header>
+<main>
+    <section class = "cart">
+        <h1>Все Заказы</h1>
+        <div class = "orders" th:each="order : ${orders}">
+            <div class = "simpleOrder">
+                <div class = "orderDescription">
+                    <h3 th:text="${'Заказ от ' + order.getOrderDate()}" ></h3>
+                    <p th:text = "${'Общая стоимость: ' + order.getTotalCost() + ' ₽'}"></p>
+                    <p th:text = "${'Статус заказа: ' + order.getStatus()}"></p>
+                </div>
+
+                <div th:each="meat : ${order.getOrderItems()}">
+                    <div class = "product">
+                        <img th:src="@{'/static/images/' + ${meat.getMeat().getId()} + '.jpg'}">
+                        <p th:text = "${meat.getMeat().getName()}"></p>
+                        <p th:text = "${'Цена: ' + meat.getMeat().getPrice()  + ' ₽'}"></p>
+                        <p th:text = "${'Количество: ' + meat.getQuantity()}"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div id = "myContacts" class = "contactsMenu" th:object="${user}">
+        <div class = "userHeader">
+            <h3>Данные пользователя</h3>
+        </div>
+        <div class = "textInput">
+            <p th:text = "${'Имя: ' + user.getUsername()}"></p>
+            <p th:text = "${'Почта: ' + user.getEmail()}"></p>
+        </div>
+        <form action="/logout" method="GET" style = "width: 150px">
+            <button class = "shineButton" type="submit">Выйти</button>
+        </form>
+    </div>
+
+
+    <script src = "/js/order-products.js"></script>
+
+    <script>
+        window.onload = function () {
+            getNumberOfItems();
+            fillCartItems();
+        };
+    </script>
+</main>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <title>Login</title>
+    <link href="/static/css/header.css" rel="stylesheet">
+    <link href="/static/css/forms.css" rel="stylesheet">
+</head>
+<body>
+
+<header th:insert="~{/header :: header}"></header>
+<main>
+    <form th:action="@{/login}" method="post">
+        <h2> Вход</h2>
+        <div class = "textInput">
+            <input type="text" name="username" required placeholder="Логин">
+            <input type="password" name="password" required placeholder="Пароль">
+            <input type="submit" value="Войти">
+        </div>
+        <div th:if="${errorLog}" class="error">
+            <p th:text="${errorLog}"></p>
+        </div>
+        <div class="button">
+            <a href="/reg">Регистрация</a>
+        </div>
+    </form>
+</main>
+
+</body>
+</html>
